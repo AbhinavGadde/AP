@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APRAMEYA PRODUCTIONS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="logo1.jpg" alt="AP" class="logo-image">
+            <div class="logo-text">
+                <h1>Aprameya Productions</h1>
+                <p>lights . camera . action</p></a>
+            </div>
+        </div>
+        
+        <div class="menu-bar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="films.html">Films<i class="fas fa-caret-down"></i></a>
+                    <div class="dropdown-menu">
+                        <ul>
+                        <hr>
+                        <li><a href="sasp.html">Safe Space</a></li>
+                        <hr>
+                        <li><a href="lawki.html">Love As We Know It</a></li>
+                        <hr>
+                        <li><a href="lawki2.html">Love As We Know It 2</a></li>
+                        <hr>
+                        <li><a href="adomilic.html">A Day Of My Life In The City</a></li>
+                        <hr>
+                        <li><a href="wai.html">Who Am I?</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="contact.html">Contact us</a></li>
+                <li><a href="cr.html">Crowd Funding</a></li>
+            </ul>
+        </div>
+        
+    </header>
+
+    <section class="container">
+        <div class="slider-wrapper">
+            <div class="slider" id="slider">
+                <a href="aboutus.html"><img class="slide" id="slide-1" src="1.png" alt="logo"/></a>
+                <a href="sasp.html"><img class="slide" id="slide-2" src="4.png" alt="Safe Space"/></a>
+                <a href="lawki.html"><img class="slide" id="slide-3" src="3.jpg" alt="Love As We Know It Part 1"/></a>
+                <a href="lawki2.html"><img class="slide" id="slide-4" src="2.jpg" alt="Love As We Know It Part 2" /></a>
+                <a href="adomilic.html"><img class="slide" id="slide-5" src="5.png" alt="A Day Of My Life In The City" /></a>
+                <a href="wai.html"><img class="slide" id="slide-6" src="6.png" alt="Who Am I?" /></a>
+            </div>
+
+            <!-- Manual Navigation Buttons -->
+            <button id="prev" class="nav-button">❮</button>
+            <button id="next" class="nav-button">❯</button>
+        </div>
+    </section>
+    <hr>
+    <section>
+    <div class="block">
+        <h2>Our Work</h2>
+        <div class="row">
+            <div class="column">
+                <a href="lawki.html"><img src="3.jpg" alt="Love As We Know It" width="700px" height="400px"/></a><br>
+                <a href="https://youtu.be/4sVt5EXDkXw?si=3do6OZixeU4lCEMF" target="_blank"><button>Watch Now</button></a>
+                <a href="lawki.html"><button>About</button></a>
+            </div>
+            <div class="column">
+                <a href="wai.html"><img src="6.png" alt="Who Am I?" width="700px" height="400px"/></a><br>
+                <a href="https://youtu.be/aY8yi0A8_Sg?si=h2IDwLC2DH5C1ngr" target="_blank"><button>Watch Now</button></a>
+                <a href="wai.html"><button>About</button></a>
+            </div>
+        </div>
+    </div>
+    <div class="center">
+        <a href="films.html"><button>See More></button></a>
+    </div>
+    </section>
+    <hr>
+    <section id="contact">
+        <div class="block">
+            <h2>Contact Us</h2>
+            <p>Email : locusproductions2023@gmail.com <br>
+               Youtube : <a href="https://www.youtube.com/channel/UC8J_P4OOPX9oSLQi9awtAHw?" target="_blank">Aprameya Productions</a><br>
+               Instagram : <a href="https://www.instagram.com/aprameya_productions?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">@aprameya_productions</a><br></p>
+        </div>
+    </section>
+</main>
+    <footer>
+        <p>&copy; 2024 APRAMEYA PRODUCTIONS. All Rights Reserved.</p>
+    </footer>
+    <script>
+                // JavaScript for automatic and manual slideshow
+        let currentIndex = 0;
+        const slides = document.querySelectorAll(".slider .slide");
+        const slideCount = slides.length;
+        const intervalTime = 5000; // 5 seconds
+        let slideInterval = setInterval(showNextSlide, intervalTime);
+
+        // Function to show the next slide
+        function showNextSlide() {
+            slides[currentIndex].style.display = "none"; // Hide current slide
+            currentIndex = (currentIndex + 1) % slideCount; // Increment index
+            slides[currentIndex].style.display = "block"; // Show next slide
+        }
+
+        // Function to show the previous slide
+        function showPrevSlide() {
+            slides[currentIndex].style.display = "none"; // Hide current slide
+            currentIndex = (currentIndex - 1 + slideCount) % slideCount; // Decrement index
+            slides[currentIndex].style.display = "block"; // Show previous slide
+        }
+
+        // Function to manually navigate to the next slide
+        document.getElementById("next").addEventListener("click", function () {
+            clearInterval(slideInterval); // Stop automatic slideshow
+            showNextSlide();
+            resetSlideInterval(); // Restart automatic slideshow
+        });
+
+        // Function to manually navigate to the previous slide
+        document.getElementById("prev").addEventListener("click", function () {
+            clearInterval(slideInterval); // Stop automatic slideshow
+            showPrevSlide();
+            resetSlideInterval(); // Restart automatic slideshow
+        });
+
+        // Restart the slideshow after manual navigation
+        function resetSlideInterval() {
+            slideInterval = setInterval(showNextSlide, intervalTime);
+        }
+
+        // Initialize the slideshow by showing the first slide
+        window.onload = () => slides[currentIndex].style.display = "block";
+
+    </script>
+</body>
+</html>
